@@ -326,3 +326,193 @@ for letter in 'Python':
     print('Current letter:', letter)
 ```
 
+### LECTURE 04 DATA STRUCTURES (Part 1) : LIST/TUPLE
+
+#### 1. List
+
+Lists are an important data type that allows you to keep a set of iterable item(s). Lists are *MUTABLE* sequences. This literally means you can have a list of items, like 1, 2, 3 or "h", "e", "l", "l", "o", "!".<br> A list is denoted by square brackets, [ ]. To create a list that holds actual items, put them within square brackets and use commas to separate the items.
+
+- Create a list
+
+`lst = [1, 2, 3, 4]`
+
+```
+# nested list
+lst = [['h', 'e', 'l', 'l', 'o'], 
+       [True, 13, None, 'l', 'd', '123', 123]]
+```
+
+- Convert a non-list into a list
+
+`list('hello world')`
+
+- List indexing/slicing
+
+```
+team = ['linh', 'chi', 'huong', 'hien', 'trang']
+team[0]
+# team[0:2]
+```
+
+##### 1.1 built-in list methods
+
+- list.append() : add AN ITEM to the end of the list
+
+```
+team = ['linh', 'chi', 'huong', 'hien', 'trang']
+team.append('bao')
+team
+```
+
+- list.extend(): extend LIST by adding all the items from iterable
+
+```
+team = ['linh', 'chi', 'huong', 'hien', 'trang']
+team.extend(['bao', 'viet'])
+team
+```
+
+```
+# ví dụ thêm 2 item vào 1 list
+.append(item1, item2) -> báo lỗi vì append chỉ làm việc với 1 item (str/list)
+.extend(item1, item2) -> báo lỗi vì extend chỉ làm việc với 1 item (list)
+```
+
+- list.insert(i, x): insert an item x at a given position i
+
+```
+team = ['linh', 'chi', 'huong', 'hien', 'trang']
+print("Before", team)
+team.insert(0, 'trang')
+print("After", team)
+```
+
+- list.remove(x): remove the **first** item from the list whose value is equal to x
+
+```
+team = ['linh', 'chi', 'huong', 'hien', 'trang', 'linh']
+print("Before", team)
+team.remove('linh')
+print("After", team)
+```
+
+- list.pop([i]): remove the item at the given position in the list and return it
+
+```
+team.pop()  # remove the last item
+team
+```
+
+- list.count(x): return the number of times x appears in the list
+
+```
+print(team)
+occu_trang = team.count('trang')
+print(f"Trang xuat hien {occu_trang} lan trong list")
+```
+
+- list.sort(key=None, reverse=False) : sort a list
+
+```
+a.sort()
+a.sort(reverse=True)
+a
+```
+
+##### 1.2 range and for loop with list
+remind :
+```
+range(start, stop[, step])
+```
+
+- loop
+
+```
+# Method 1
+fruits = ['cam', 'táo', 'hồng', 'bưởi']
+for i in fruits:
+    print(i)
+
+# Method 2
+for idx in range(len(fruits)):
+    print(fruits[idx])
+
+# nested list
+fruits = [['cam', 'táo', 'hồng', 'bưởi'], 
+          ['nho', 'lựu', 'dưa hấu', 'cà chua']]
+for sublist in fruits:
+    for fruit in sublist:
+        print(fruit)
+```
+
+```
+shallow copy / deepcopy
+- list_goc.copy()
+- list(list_goc)
+- list_goc[:]
+- copy.copy(list_goc) (cần import thư viện copy)
+- copy.deepcopy(list_goc) (cần import thư viện copy)
+```
+
+#### 2 tuple
+In contrast with list , a tuple is a fixed-length, immutable sequence of Python objects. The easiest way to create one is with a comma-separated sequence of values:
+
+tuple is IMMUTABLE
+
+##### 2.1 Create a tuple
+
+`tup = (2, 3, 5)`
+
+- Pay attention: how to create a tuple with only one element
+`tup = (3,)`
+
+- nested tuple
+
+```
+nested_tup = ((4, 5, 6), 
+              (7, 8, 9))
+```
+
+- Convert a list to a tuple
+
+```
+li = [3, 5, 6]
+a = tuple(li)
+a
+```
+
+- Convert a string to a tuple
+
+`tuple('a string')`
+
+- Access Tuple Items: indexing/slicing
+
+```
+tup = (2, 3 ,5)
+tup[:2]
+```
+
+##### 2.2 Tuple is immutable
+tuple is immutable that means you can not change the value of tuple 
+
+- unpacking a tuple/list
+
+`x, y, z = 1, 2, 3`
+
+```
+tup = (6, 8, 9)
+a, b, c = tup
+print(a, b, c)
+```
+
+```
+pair = ('phone', [123, 234])
+key, [value1, value2] = pair
+key
+```
+
+```
+tup = (5, [6, 7, 8], 9)
+a, [b1, b2, b3], c = tup
+print(a, b1, b2, b3, c)
+```
